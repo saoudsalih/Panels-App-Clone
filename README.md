@@ -1,6 +1,6 @@
-# pannel_clone
+# Pannel App
 
-A new Flutter project.
+its a clone project of pannnel app with clean arch and using bloc statemanagement
 
 ## Getting Started
 
