@@ -1,4 +1,4 @@
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ItemTile extends StatelessWidget {
@@ -20,23 +20,32 @@ class ItemTile extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.network(
-              sourceImage,
+            CachedNetworkImage(
               fit: BoxFit.cover,
+              imageUrl: sourceImage,
             ),
             Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                padding: const EdgeInsets.all(8),color: Colors.black.withOpacity(.7),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("PIC:$index",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
-                    const Icon(Icons.favorite,color: Colors.white,)
-                  ],
-                ),))
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Colors.black.withOpacity(.7),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "PIC:$index",
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w600),
+                      ),
+                      const Icon(
+                        Icons.favorite,
+                        color: Colors.white,
+                      )
+                    ],
+                  ),
+                ))
           ],
         ));
   }

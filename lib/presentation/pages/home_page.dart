@@ -12,17 +12,49 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MasonryGridView.count(
-      crossAxisCount: 2,
-      mainAxisSpacing: 12,
-      crossAxisSpacing: 12,
-      padding: const EdgeInsets.all(12),
-      itemBuilder: (context, index) {
-        return ItemTile(
-          index: index,
-          extent: (index % 2) == 0 ? 300 : 150, sourceImage: 'https://picsum.photos/500/500?random=$index',
-        );
-      },
+    return DefaultTabController(
+      length: 3,
+      child: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            SliverAppBar(
+              floating: true,
+              snap: true,
+              title: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: const BoxDecoration(
+                      color: Colors.blueGrey, shape: BoxShape.circle)),
+              bottom: const TabBar(
+                tabs: [
+                  Tab(text: "Suggested"),
+                  Tab(text: "Liked"),
+                  Tab(text: "Library"),
+                ],
+                indicatorColor: Colors.red,
+                indicatorWeight: 4,
+              ),
+            ),
+          ];
+        },
+        body: TabBarView(children: [
+          MasonryGridView.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 12,
+            crossAxisSpacing: 12,
+            padding: const EdgeInsets.all(12),
+            itemBuilder: (context, index) {
+              return ItemTile(
+                index: index,
+                extent: (index % 2) == 0 ? 300 : 150,
+                sourceImage: 'https://picsum.photos/500/500?random=$index',
+              );
+            },
+          ),
+          SizedBox(),
+          SizedBox()
+        ]),
+      ),
     );
     ;
   }
