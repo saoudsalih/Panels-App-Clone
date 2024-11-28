@@ -35,7 +35,7 @@ class ItemTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "PIC:$index",
+                        "Art $index",
                         style: const TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w600),
                       ),
