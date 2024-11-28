@@ -1,6 +1,6 @@
-# Pannel App
+# Panels App
 
-its a clone project of pannnel app with clean arch and using bloc statemanagement
+its a clone project of pannels app with clean arch and using bloc statemanagement
 
 ## Getting Started
 
