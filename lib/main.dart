@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pannel_clone/config/themes/theme.dart';
 import 'package:pannel_clone/presentation/pages/main_page.dart';
 
 void main() {
@@ -14,10 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PANELS APP',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
-
-      ),
+      theme: SAppTheme.lightTheme,
+      darkTheme: SAppTheme.darkTheme,
       home: const MainPage(),
     );
   }

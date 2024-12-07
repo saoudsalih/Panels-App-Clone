@@ -13,40 +13,62 @@ class ItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
-        clipBehavior: Clip.antiAlias,
-        height: extent,
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            CachedNetworkImage(
-              fit: BoxFit.cover,
-              imageUrl: sourceImage,
-            ),
-            Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  color: Colors.black.withOpacity(.7),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Art $index",
-                        style: const TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.w600),
-                      ),
-                      const Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                ))
-          ],
-        ));
+    return GestureDetector(
+      onTap: () {
+        showDetailImage(context, sourceImage);
+      },
+      child: Container(
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+          clipBehavior: Clip.antiAlias,
+          height: extent,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageUrl: sourceImage,
+              ),
+              Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    color: Colors.black.withOpacity(.7),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Art $index",
+                          style: const TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w600),
+                        ),
+                        const Icon(
+                          Icons.favorite,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  ))
+            ],
+          )),
+    );
+  }
+
+  void showDetailImage(BuildContext context, String sourceImage) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (context) {
+        return FractionallySizedBox(
+          heightFactor: 0.9,
+          child: Column(
+            children: [
+              CachedNetworkImage(imageUrl: sourceImage)
+            ],
+          ),
+        );
+      },
+    );
   }
 }
