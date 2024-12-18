@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:pannel_clone/config/constants/colors.dart';
 import 'package:pannel_clone/config/themes/custom_themes/app_bar_theme.dart';
 import 'package:pannel_clone/config/themes/custom_themes/bottom_sheet_theme.dart';
 import 'package:pannel_clone/config/themes/custom_themes/elevated_button_theme.dart';
@@ -11,7 +12,7 @@ class SAppTheme{
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    primaryColor: Colors.blue,
+    primaryColor: SColors.primary,
     scaffoldBackgroundColor: Colors.white,
     textTheme: STextTheme.lightTextTheme,
     elevatedButtonTheme: SElevatedButtonTheme.lightElevateButtonTheme,
@@ -20,6 +21,8 @@ class SAppTheme{
   );
   
 
-  static ThemeData darkTheme = ThemeData();
+  static ThemeData darkTheme = ThemeData(
+    
+  );
 
 }

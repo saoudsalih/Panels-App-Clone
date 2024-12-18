@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PANELS APP',
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
       theme: SAppTheme.lightTheme,
       darkTheme: SAppTheme.darkTheme,
       home: const MainPage(),
