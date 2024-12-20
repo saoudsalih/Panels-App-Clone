@@ -78,11 +78,10 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          SizedBox(),
-          SizedBox()
+          const SizedBox(),
+          const SizedBox()
         ]),
       ),
     );
-    ;
   }
 }

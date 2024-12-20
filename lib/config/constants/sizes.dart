@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 
 class SSizes {
   // Padding and margin
